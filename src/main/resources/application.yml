@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/studs
+    username: s368346
+    password: d9UD1j7vbzvpZfFB
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    showSql: false
+    ddl-auto: create

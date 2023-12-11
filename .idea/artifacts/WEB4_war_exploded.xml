@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WEB4:war exploded">
+    <output-path>$PROJECT_DIR$/target/WEB4-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>WEB4</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WEB4" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.2.0" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.6.0" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.31.0" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:3.2.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:6.1.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:6.1.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:6.1.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:6.1.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:6.1.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:6.1.1" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-observation:1.12.0" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-commons:1.12.0" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/WEB4-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="WEB4/web/Web" />
+    </root>
+  </artifact>
+</component>
