@@ -7,3 +7,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     showSql: false
     ddl-auto: create
+
+jwt:
+  secret: 12356789123456789123456789123456789123456789
+  lifetime: 22000000

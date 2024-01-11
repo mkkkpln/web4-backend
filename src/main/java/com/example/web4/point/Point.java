@@ -1,4 +1,4 @@
-package backend.point;
+package com.example.web4.point;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
@@ -13,16 +13,14 @@ public class Point {
     private boolean result;
     private long createdAt;
     private double executionTime;
-    private int userID;
 
-    public Point(double x, double y, double r, boolean result, long createdAt, double executionTime, int userID) {
+    public Point(double x, double y, double r, boolean result, long createdAt, double executionTime) {
         this.x = x;
         this.y = y;
         this.r = r;
         this.result = result;
         this.createdAt = createdAt;
         this.executionTime = executionTime;
-        this.userID = userID;
     }
 
     public static record Coordinates (double x, double y, double r, boolean result) { }
@@ -88,7 +86,4 @@ public class Point {
         this.executionTime = executionTime;
     }
 
-    public int getUserId() { return userID; }
-
-    public void setUserId(int userID) { this.userID = userID; }
 }
