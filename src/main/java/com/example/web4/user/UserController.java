@@ -30,13 +30,16 @@ public class UserController {
             userRepository.registerUser(login, password);
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("User exists", HttpStatus.OK);
+            return new ResponseEntity<>("Пользователь уже существует", HttpStatus.OK);
         }
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserEntity user) {
         UserDetails user1 = userDetailsService.loadUserByUsername(user.getUsername());
+
+        System.out.println(user.getPassword());
+
         if (passwordEncoder.matches(user.getPassword(), user1.getPassword())) {
             ResponseEntity.BodyBuilder response = ResponseEntity.ok();
             return response.body(jwtTokenUtils.generateToken(userDetailsService.loadUserByUsername(user.getUsername())));
