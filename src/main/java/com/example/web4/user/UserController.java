@@ -1,11 +1,9 @@
 package com.example.web4.user;
 
-import com.example.web4.BasicConfiguration;
 import com.example.web4.jwt.JwtTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,14 +35,11 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserEntity user) {
         UserDetails user1 = userDetailsService.loadUserByUsername(user.getUsername());
-
-        System.out.println(user.getPassword());
-
         if (passwordEncoder.matches(user.getPassword(), user1.getPassword())) {
-            ResponseEntity.BodyBuilder response = ResponseEntity.ok();
-            return response.body(jwtTokenUtils.generateToken(userDetailsService.loadUserByUsername(user.getUsername())));
+            String token = jwtTokenUtils.generateToken(userDetailsService.loadUserByUsername(user.getUsername()));
+            return ResponseEntity.ok(token);
         } else {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Неверное имя пользователя или пароль");
         }
     }
 
